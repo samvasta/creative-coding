@@ -1,0 +1,17 @@
+{
+    "[rust]": {
+        "editor.semanticHighlighting.enabled": true,
+        "editor.formatOnSave": true
+    },
+    "cSpell.words": [
+        "actix",
+        "fastrand",
+        "listenfd",
+        "premul",
+        "skia",
+        "wyrand"
+    ],
+    // "rust-analyzer.diagnostics.disabled": [
+    //     "macro-error"
+    // ]
+}
