@@ -3,14 +3,15 @@ use std::collections::HashMap;
 use serde_json::Value;
 use skia_safe::{Canvas, Color, Paint, Rect};
 
-use crate::{generators::types::dimensions::InputExtractor, util::colors};
+use crate::generators::types::dimensions::InputExtractor;
+use crate::util::colors;
 
-use super::types::{
+use crate::generators::types::{
     self,
     dimensions::{GeneratorDimensionInfo, IntegerInput},
 };
 
-const NAME_NUM_ITEMS: &str = "test_generator";
+const NAME_NUM_ITEMS: &str = "test_palette";
 
 const INPUT_NUM_ITEMS: IntegerInput = IntegerInput {
     min: 0,
@@ -27,7 +28,7 @@ pub fn get_generator() -> types::GeneratorInfo {
         dimensions: vec![GeneratorDimensionInfo {
             name: "num_items",
             description: "blah",
-            data_info: Box::from(INPUT_NUM_ITEMS),
+            data_info: Box::new(INPUT_NUM_ITEMS),
         }],
         generate: generate,
     }

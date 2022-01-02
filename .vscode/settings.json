@@ -9,9 +9,27 @@
         "listenfd",
         "premul",
         "skia",
+        "Srgb",
         "wyrand"
     ],
+    "dendron.rootDir": ".",
+    "files.autoSave": "onFocusChange",
+    "pasteImage.path": "${currentFileDir}/assets/images",
+    "pasteImage.prefix": "/",
+    "editor.snippetSuggestions": "inline",
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggest.showSnippets": true,
+    "editor.tabCompletion": "on",
     // "rust-analyzer.diagnostics.disabled": [
     //     "macro-error"
     // ]
+    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
+    "[markdown]": {
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": true,
+        "editor.wordBasedSuggestions": false,
+        "editor.tabSize": 2,
+        "editor.suggest.preview": true,
+    },
 }
