@@ -14,8 +14,12 @@ pub trait InputExtractor<T>: InputInfo {
     fn parse_json(&self, value: &Value) -> T;
     fn get_default(&self) -> T;
 
-    fn from_dimensions(&self, key: &'static str, raw_dimensions_json: HashMap<String, Value>) -> T {
-        match raw_dimensions_json.get(&self.name()) {
+    fn from_dimensions(
+        &self,
+        key: &'static str,
+        raw_dimensions_json: &HashMap<String, Value>,
+    ) -> T {
+        match raw_dimensions_json.get(key) {
             Some(value) => self.parse_json(value),
             _ => self.get_default(),
         }

@@ -4,14 +4,14 @@ use serde_json::Value;
 use skia_safe::{Canvas, Color, Paint, Rect};
 
 use crate::generators::types::dimensions::InputExtractor;
-use crate::util::colors;
 
-use crate::generators::types::{
+use super::types::{
     self,
     dimensions::{GeneratorDimensionInfo, IntegerInput},
 };
 
-const NAME_NUM_ITEMS: &str = "test_palette";
+const GENERATOR_NAME: &str = "test_generator";
+const NAME_NUM_ITEMS: &str = "num_items";
 
 const INPUT_NUM_ITEMS: IntegerInput = IntegerInput {
     min: 0,
@@ -21,14 +21,14 @@ const INPUT_NUM_ITEMS: IntegerInput = IntegerInput {
 
 pub fn get_generator() -> types::GeneratorInfo {
     types::GeneratorInfo {
-        name: NAME_NUM_ITEMS,
+        name: GENERATOR_NAME,
         description: "this is just for testing",
         author: "Sam Vasta",
         created_at: "Dec 2021",
         dimensions: vec![GeneratorDimensionInfo {
-            name: "num_items",
+            name: NAME_NUM_ITEMS,
             description: "blah",
-            data_info: Box::new(INPUT_NUM_ITEMS),
+            data_info: Box::from(INPUT_NUM_ITEMS),
         }],
         generate: generate,
     }
@@ -42,7 +42,7 @@ fn generate(
     dimensions: HashMap<String, Value>,
 ) {
     let rand = fastrand::Rng::with_seed(seed);
-    let num_items = INPUT_NUM_ITEMS.from_dimensions(NAME_NUM_ITEMS, dimensions);
+    let num_items = INPUT_NUM_ITEMS.from_dimensions(NAME_NUM_ITEMS, &dimensions);
 
     canvas.save();
     canvas

@@ -5,8 +5,13 @@
     },
     "cSpell.words": [
         "actix",
+        "arctan",
         "fastrand",
+        "Lerp",
+        "lerpf",
         "listenfd",
+        "powf",
+        "powi",
         "premul",
         "skia",
         "Srgb",

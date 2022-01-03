@@ -2,7 +2,6 @@ use std::{env, io};
 
 mod generators;
 mod server;
-mod util;
 
 #[actix_web::main]
 async fn main() -> io::Result<()> {
